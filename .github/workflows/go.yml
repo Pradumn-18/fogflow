@@ -16,7 +16,7 @@ jobs:
 
     - name: Build
       run: |
-        export GOBIN:$home/runner/go/bin
+        export GOBIN=$GOPATH/bin
         go env
         ls
         cd discovery/
