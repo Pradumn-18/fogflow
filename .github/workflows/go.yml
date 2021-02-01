@@ -17,11 +17,14 @@ jobs:
     - name: Build
       run: |
         export PATH=$PATH:$GOPATH/bin:/home/runner/go/bin
+        go env
         ls
         cd discovery/
         go get; go build;
-        cd ../broker
+        la
+        cd ../broker/
         go get; go build;
+        la
         cd ../designer
         npm install 
         
