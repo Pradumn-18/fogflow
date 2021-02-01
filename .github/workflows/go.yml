@@ -14,6 +14,34 @@ jobs:
       with:
         go-version: 1.15
         
+    - name: Docker Build Job
+      run: |
+        docker --version
+        echo "build discovery"
+        cd discovery
+        pwd
+        sh build
+
+        echo "build broker"
+        cd ../broker
+        pwd
+        sh build
+
+        echo "build worker"
+        cd ../worker
+        pwd
+        sh build
+
+        echo "build master"
+        cd ../master
+        pwd
+        sh build
+    
+        echo "build designer"
+        cd ../master
+        pwd
+        sh build
+            
     - name: Build
       run: |
         export GOBIN=/home/runner/go/bin
