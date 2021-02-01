@@ -16,7 +16,7 @@ jobs:
 
     - name: Build
       run: |
-        export GOBIN: /home/runner/go/bin
+        export PATH=$PATH:$GOPATH/bin:/home/runner/go/bin
         ls
         cd discovery/
         go get; go build;
