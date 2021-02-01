@@ -59,4 +59,26 @@ jobs:
         ls
         cd ../designer/
         npm install 
+        
+        sudo apt-get update
+        sudo apt-get install jq
+        sudo apt-get install python-pip
+        pip -V
+        sudo pip install --upgrade pip
+        pip install Flask
+        pip install requests
+        pip install -U pytest
+        sudo apt-get install curl
+        echo 'deb http://www.rabbitmq.com/debian/ testing main' | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+        wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | sudo apt-key add -
+        sudo apt-get update
+        sudo apt-get install rabbitmq-server
+        sudo update-rc.d rabbitmq-server defaults
+        sudo service rabbitmq-server start
+        sudo systemctl enable rabbitmq-server
+        sudo systemctl start rabbitmq-server
+        sudo rabbitmqctl add_user admin mypass
+        sudo rabbitmqctl set_user_tags admin administrator
+        sudo rabbitmqctl set_permissions -p / admin ".*" ".*" ".*"
+        echo "Done"
       
