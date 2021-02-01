@@ -21,10 +21,10 @@ jobs:
         ls
         cd discovery/
         go get; go build;
-        la
+        ls
         cd ../broker/
         go get; go build;
-        la
+        ls
         cd ../designer
         npm install 
         
