@@ -13,11 +13,14 @@ jobs:
       uses: actions/setup-go@v2
       with:
         go-version: 1.15
-
-    - name: Build
+        
+    - name: Set up Environment Variable
       run: |
         export GOBIN=/home/runner/go/bin
         go env
+        
+    - name: Build
+      run: |
         ls
         cd discovery/
         go get; go build;
@@ -25,7 +28,10 @@ jobs:
         cd ../broker/
         go get; go build;
         ls
-        cd ../designer
+        cd ../designer/
         npm install 
-        
+        ls
+        cd ../master/
+        go get; go build;
+        ls
       
