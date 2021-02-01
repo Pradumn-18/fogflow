@@ -15,4 +15,13 @@ jobs:
         go-version: 1.15
 
     - name: Build
-      run: ls
+      run: |
+        ls
+        cd discovery/
+        go get; go build;
+        cd ../broker
+        go get; go build;
+        cd ../designer
+        npm install 
+        
+      
