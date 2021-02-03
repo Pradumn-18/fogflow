@@ -66,8 +66,10 @@ jobs:
         pip -V
         sudo pip install --upgrade pip
         pip install Flask
+        export PATH=/home/runner/.local/bin
         pip install requests
         pip install -U pytest
+        export PATH=/home/runner/.local/bin
         pytest
         sudo apt-get install curl
         
