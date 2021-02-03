@@ -70,4 +70,9 @@ jobs:
         pip install -U pytest
         sudo apt-get install curl
         
+        cp ../release/validation/config.json  ../discovery/
+        cp ../release/validation/config.json  ../broker/
+        cp ../release/validation/config.json  ../master/
+        cp ../release/validation/config.json  ../worker/
+        cp ../release/validation/config.json  ../designer/
       
