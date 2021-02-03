@@ -68,6 +68,7 @@ jobs:
         pip install Flask
         pip install requests
         pip install -U pytest
+        pytest
         sudo apt-get install curl
         
         cp ../release/validation/config.json  ../discovery/
