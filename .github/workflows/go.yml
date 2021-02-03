@@ -76,3 +76,29 @@ jobs:
         cp ../release/validation/config.json  ../worker/
         cp ../release/validation/config.json  ../designer/
       
+        cd ../
+        cd discovery/ 
+        screen -d -m ./discovery
+
+        cd ../broker/
+        screen -d -m ./broker
+
+       cd ../designer/
+       screen -d -m node main.js
+
+       cd ../test/UnitTest/
+       screen -d -m python accumulator.py
+
+       cd ../UnitTest/v2/
+       pytest -s -v
+ 
+      cd ../v1/
+      pytest -s -v
+
+      cd ../NGSI-LD/
+      pytest -s -v 
+
+      cd ../persistance/
+      pytest -s -v 
+
+      echo "Testing Done !!!"
