@@ -54,7 +54,6 @@ jobs:
         pip install requests
         pip install -U pytest
         sudo apt-get install curl
-        export PATH=/home/runner/.local/bin:$PATH
             
     - name: Launching Docker containers
       run: |
@@ -79,6 +78,7 @@ jobs:
         
     - name: Running Test Cases
       run: |
+        export PATH=/home/runner/.local/bin:$PATH
         ls 
         cp release/validation/config.json  discovery/
         cp release/validation/config.json  broker/
