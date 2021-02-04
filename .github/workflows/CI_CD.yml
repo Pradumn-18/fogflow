@@ -78,7 +78,8 @@ jobs:
         npm install 
         
     - name: Running Test Cases
-      run: | 
+      run: |
+        ls 
         cp ../release/validation/config.json  ../discovery/
         cp ../release/validation/config.json  ../broker/
         cp ../release/validation/config.json  ../master/
