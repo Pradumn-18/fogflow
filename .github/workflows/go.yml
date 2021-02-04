@@ -69,7 +69,7 @@ jobs:
         pip install requests
         pip install -U pytest
         sudo apt-get install curl
-        export PATH=/home/runner/.local/bin
+        echo $PATH
         
         cp ../release/validation/config.json  ../discovery/
         cp ../release/validation/config.json  ../broker/
