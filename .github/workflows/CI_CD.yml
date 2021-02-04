@@ -86,7 +86,6 @@ jobs:
         cp release/validation/config.json  worker/
         cp release/validation/config.json  designer/
       
-        cd ../
         cd discovery/ 
         screen -d -m ./discovery
 
