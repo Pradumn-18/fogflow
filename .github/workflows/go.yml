@@ -1,4 +1,4 @@
-name: Go
+name: CI/CD Status
 
 on: [push,pull_request]
 
