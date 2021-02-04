@@ -42,13 +42,27 @@ jobs:
         cd ../master
         pwd
         sh build
+        
+    - name: Setting Up Environment
+      run: |
+        sudo apt-get update
+        sudo apt-get install jq
+        sudo apt-get install python-pip
+        pip -V
+        sudo pip install --upgrade pip
+        pip install Flask
+        pip install requests
+        pip install -U pytest
+        sudo apt-get install curl
+        export PATH=/home/runner/.local/bin:$PATH
             
-    - name: Build
+    - name: Launching Docker containers
       run: |
         sudo docker run  -it -d -p 8082:8080 -p 9082:9080 -p 8000:8000 -v ~/dgraph:/dgraph fogflow/dgraph:latest
         sudo docker run  -it -d --name mongodb -d mongo:3.4
         sudo docker run  -it -d --name orion1 --link mongodb:mongodb -p 1026:1026 fiware/orion -dbhost mongodb
         docker ps -a 
+        
         
     - name: Building Fogflow Components
       run: |  
@@ -63,17 +77,8 @@ jobs:
         cd ../designer/
         npm install 
         
-        sudo apt-get update
-        sudo apt-get install jq
-        sudo apt-get install python-pip
-        pip -V
-        sudo pip install --upgrade pip
-        pip install Flask
-        pip install requests
-        pip install -U pytest
-        sudo apt-get install curl
-        export PATH=/home/runner/.local/bin:$PATH
-        
+    - name: Running Test Cases
+      run: | 
         cp ../release/validation/config.json  ../discovery/
         cp ../release/validation/config.json  ../broker/
         cp ../release/validation/config.json  ../master/
